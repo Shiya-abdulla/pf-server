@@ -1,0 +1,108 @@
+Database  -  systamatical storage of data
+Database management system  -  software component for manipulating and accessing data from db 
+    eg : MySQL , SqLite , POSTgre , Oracle , Firebase , MongoDB etc 
+
+- SQL & NoSQL , Relational & Non - Relational  Database
+
+MongoDB 
+............
+A NoSQL and Non-Relational dbes which stores data in json format 
+features ;-
+     -scheamaless
+     -document oriented:
+                 it can store data as a document rather than row and cols
+     -scalability: 
+                 it can store high amount of data
+
+
+      MySQL                            MongoDB
+     ..........                        ............ 
+    1.Database                         Database
+    2.Table                            Collection
+    3.Cloumns/Attributes/Fields        Fields
+    4.Row/Tuple                        document
+    5.Primary key                      _id
+
+MongoDB compass
+....................
+.to show databases- show database
+.create new databse - use school               ( school is database name)
+.create collections - db.createcollection("student")
+.to show collection - show collections         (student is collection name)
+.to delete collection - db.student.drop()      (student is collection name)
+.insert data to collection - db.student.insertOne({key:value , key:value})
+                           - db.student.insertMany([{key:value}, {key:valye}])
+.to show the full of data in collection - db.student.find() 
+.to show one specific data -we can use condition on find - db.student.find({name:'shiya'})  
+.to delete data - db.student.deleteone({'name':'shiya'})  
+                  db.student.deletemany
+                db.student.fineOneAndMany({_id:objectId('............')}) -this will return deleted data                      
+    
+
+Query selectores
+....................
+Comparison :
+...
+.$eq     db.student.find({age : {$eq : 20}})
+.$gt
+.$gte 
+.$lt 
+.$lte 
+.$ne
+.$in
+.$nin 
+
+Logical :
+...
+.$and     db.student.find({$and : [{name:'shiya'},{age:20}]})
+.$or
+.$not    db.student.find({age :{$not :{$eq :20}}})
+
+=>db.students.find({PHONE:{$exists:true}})
+=>db.students.find({age:{$type:'string'}})
+
+=>db.student.find().count()  -- total count od data
+=>db.student.find().limit(2)  -- show first 2 data
+=>db.student.find().sort({age:1}) --show the all data in age acsending order
+  db.student.find().sort({age:-1}) --show the all data in age descending order
+
+
+
+
+-nodemon : nodemon is a   command line tool that helps with speedy development of Node . js application
+ it monitors your project directly and automatically restarts your node application when it ditect any changes 
+ install --- npm i nodemon
+
+-mongoose :  
+
+
+-JWT (jsonwebtoken)
+ - a more compact authentication approch by using a specific classified value called token
+ - an authorised user will be provided with a signature value called 'token ' , which can be used for permission in th furthe requests.
+ - jsonwebtoken for Node.js
+ - npm i jsonwebtoken
+ - uses sign() method for creating token for a valid user , and verify() for checking  a token/signature validity .
+
+
+
+Middlewares 
+...........
+-special function that can act b/w server  and clients mainly for requests calidtion and more 
+ 
+ const Middlewares=(req, res , next)=>{
+  
+ }
+
+Multer :
+...........
+multer adds a body object and a file or file object to the request object 
+
+
+context API 
+/...............
+-concept passing data from one component to another component without passing it data through every levels of component tree 
+-another soloution for props  drilling 
+-easy implementation
+
+-createContext():to create context instamce for passing data 
+-useContext():hook for accessing data for context 
